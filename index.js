@@ -9,8 +9,29 @@ function main() {
     // need to convert string to numbers for calculation
     console.log(firstStr, operator, secondStr);
     // need to check for valid inputs
-    var op = isOperator(operator);
-    console.log(op);
+    var validInput = isNumber(firstStr) && isOperator(operator) && isNumber(secondStr);
+    if (validInput) {
+        var firstNum = parseInt(firstStr);
+        var secondNum = parseInt(secondStr);
+        var result = calculate(firstNum, operator, secondNum);
+        console.log(result);
+    }
+    else {
+        console.log('\ninvalid input\n');
+        main();
+    }
+}
+function calculate(firstNum, operator, secondNum) {
+    switch (operator) {
+        case '+':
+            return firstNum + secondNum;
+        case '-':
+            return firstNum - secondNum;
+        case '*':
+            return firstNum * secondNum;
+        case '/':
+            return firstNum / secondNum;
+    }
 }
 function isOperator(operator) {
     switch (operator) {
