@@ -9,6 +9,27 @@ function main(): void {
     // need to convert string to numbers for calculation
     console.log(firstStr,operator,secondStr);
     // need to check for valid inputs
+
+    const op = isOperator(operator);
+    console.log(op);
+}
+
+function isOperator(operator: string): boolean {
+    switch(operator){
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+            return true;
+        default:
+            return false;
+    }
+}
+
+function isNumber(str: string): boolean{
+    const maybeNum = parseInt(str);
+    const isNum: boolean = Boolean(!isNaN(maybeNum));
+    return isNum;
 }
 
 main();
